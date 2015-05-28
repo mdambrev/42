@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/02 05:25:44 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/05/28 18:17:13 by mdambrev         ###   ########.fr       */
+/*   Created: 2015/05/28 17:20:36 by mdambrev          #+#    #+#             */
+/*   Updated: 2015/05/28 20:18:24 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
 #include "push_swap.h"
+#include <stdio.h>
 
+int cmp2(int a, int b)
+{	
+	return(a < b);
+}
 
-int main(int argc, char **argv)
+int			check_list(t_content *axx)
 {
-	t_content	*axx;
-
-	if(argc < 2)
-		return(0);
-	verif_error(argv++);
-	axx = create_list(argv);
-	printf("%d \n",check_list(axx));
-//	while(LIST_IB(0, 0) == 0)
-//		printf("%d\n", VALUE_I(0,0));
-
-
-//	printf("\n========================\n");
-	
-//	while(LIST_IB(1, 0) == 0)
-//		printf("%d\n", VALUE_I(1,0));
-	return(0);
+	TMP_A(0) = LIST_A(0);
+	LIST_R(NB_LIST);
+	while(LIST_IB(NB_LIST, 0) == 0)
+	{
+		if(TMP_A(0)->bit != TMP_V(0, 2))
+		{
+			if((cmp2(TMP_I(0, 0) , ((t_int*)((t_clist*)LIST_V(NB_LIST, 0) + 3)->bit)->t_x)) == 0)
+				return(0);
+		}
+	}
+	return(1);
 }

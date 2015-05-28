@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/05/26 17:57:11 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/05/28 17:57:28 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,11 +18,12 @@ LIB 	= mylib/libft.a
 
 INC_LIB = ./mylib/includes/
 
-SRC 	= main.c\
-		  error.c\
-		  list.c\
-		  operation.c\
-		  operation2.c\
+SRC 	= main.c \
+		  error.c \
+		  list.c \
+		  operation.c \
+		  operation2.c \
+		  sort.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/

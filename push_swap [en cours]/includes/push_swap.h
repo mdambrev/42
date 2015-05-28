@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 04:57:55 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/05/26 18:22:16 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/05/28 18:04:32 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ void 		rr(t_content *axx);
 void		rra(t_content *axx);
 void		rrb(t_content *axx);
 void		rrr(t_content *axx);
+int			cmp(int a, int b);
+int			check_list(t_content *axx);
 
 #endif

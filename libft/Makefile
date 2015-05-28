@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/15 14:01:52 by mdambrev          #+#    #+#              #
-#    Updated: 2015/05/23 09:42:34 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/05/28 16:25:10 by mdambrev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -75,9 +75,10 @@ SRC =		./ft_atoi.c \
 				./nb_word_str.c \
 				./replace_char.c \
 				./nb_char_str.c \
-				./d_list.c\
-				./d_list2.c\
-				
+				./d_list.c \
+				./d_list2.c \
+				./d_list3.c \
+
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME) 
