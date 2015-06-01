@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/23 12:49:11 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/01 04:05:39 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/01 05:07:49 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,14 @@ t_content		*create_list(char **argv, int argc)
 
 	x = 0;
 	axx = init_list();
+	add_l(&LIST_A(0), NULL, 0);
 	tmp = (t_int*)malloc(sizeof(tmp));
 	tmp->t_x = argc;
 	LIST_V(0, 3) = tmp;
+	tmp = (t_int*)malloc(sizeof(tmp));
+	tmp->t_x = 0;
+	add_l(&LIST_A(2), NULL, 0);
+	LIST_V(2, 3) = tmp;
 	while(argv[x])
 	{
 		tmp = (t_int*)malloc(sizeof(tmp));
@@ -40,7 +45,7 @@ t_content		*create_list(char **argv, int argc)
 	sort_list_bul(axx, 2, cmp);
 	add_l(&LIST_A(1), NULL, 0);
 	tmp = (t_int*)malloc(sizeof(tmp));
-	tmp->t_x = 0;
+	tmp->t_x = 1;
 	LIST_V(1, 3) = tmp;
 	return(axx);
 }
