@@ -6,35 +6,40 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/29 20:14:51 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/05/29 20:29:15 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/01 03:58:33 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int op(int x, int y);
+#include "push_swap.h"
+// atention a lincrementation parfois inutile si par ex pa ne fait rien
+
+int op(t_content *axx, int x, int y)
 {
-	static int x = 0;
+	static int out = 0;
 
 	if(x > 0)
-		x++;
-	if(x == 0)
+		out++;
+	else if(x == 0)
 		s_a(axx, y);
-	if(x == 1)
+	else if(x == 1)
 		s_b(axx, y);
-	if(x == 2)
+	else if(x == 2)
+		ss(axx, y);
+	else if(x == 3)
 		p_a(axx, y);
-	if(x == 3)
+	else if(x == 4)
 		p_b(axx, y);
-	if(x == 4)
+	else if(x == 5)
 		r_a(axx, y);
-	if(x == 5)
+	else if(x == 6)
 		r_b(axx, y);
-	if(x == 6)
+	else if(x == 7)
 		rr(axx, y);
-	if(x == 7)
+	else if(x == 8)
 		rra(axx, y);
-	if(x == 8)
+	else if(x == 9)
 		rrb(axx, y);
-	if(x == 9)
+	else if(x == 10)
 		rrr(axx, y);
-	return(x);
+	return(out);
 }
