@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 04:57:55 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/01 04:56:06 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/01 08:16:14 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		rrr(t_content *axx);
 int			cmp(int a, int b);
 int			check_list(t_content *axx);
 void		ss(t_content *axx);
-int			op(t_content *axx, int x);
+size_t		op(t_content *axx, int x);
 void		push_a(t_content *axx, int pos_x);
 void		push_b(t_content *axx, int pos_x);
 

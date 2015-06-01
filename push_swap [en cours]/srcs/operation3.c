@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/29 20:14:51 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/01 07:36:49 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/01 08:21:53 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include <stdio.h>
 // atention a lincrementation parfois inutile si par ex pa ne fait rien
 
-int op(t_content *axx, int x)
+size_t op(t_content *axx, int x)
 {
-	static int out = 0;
+	static size_t  out = 0;
 
 	if(x > 0)
 		out++;
-	else if(x == 0)
+	if(x == 0)
 		s_a(axx);
 	else if(x == 1)
 		s_b(axx);
@@ -62,16 +62,16 @@ void push_b(t_content *axx, int  pos_x)
 	if(pos_x < x)
 	{
 		while(pos_x--)
-			rra(axx);
-		p_b(axx);
+			op(axx, 8);
+		op(axx, 4);
 	}
 	else if(pos_x >= x)
 	{
 		pos_x++;
 		x = TMP_I(0, 0);
 		while(pos_x++ < x)
-			r_a(axx);
-		p_b(axx);
+			op(axx, 5);
+		op(axx, 4);
 	}
 	TMP_A(0) = LIST_A(0);
 	LIST_R(NB_LIST);
@@ -98,16 +98,16 @@ void push_a(t_content *axx, int  pos_x)
 	if(pos_x < x)
 	{
 		while(pos_x--)
-			rrb(axx);
-		p_a(axx);
+			op(axx, 9);
+		op(axx, 3);
 	}
 	else if(pos_x >= x)
 	{
 		pos_x++;
 		x = TMP_I(0, 0);
 		while(pos_x++ < x)
-			r_b(axx);
-		p_a(axx);
+			op(axx, 6);
+		op(axx, 3);
 	}
 	TMP_A(0) = LIST_A(1);
 	LIST_R(NB_LIST);
