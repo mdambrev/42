@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/29 20:14:51 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/01 08:21:53 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/04 04:40:12 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t op(t_content *axx, int x)
 {
 	static size_t  out = 0;
 
-	if(x > 0)
+	if(x >= 0)
 		out++;
 	if(x == 0)
 		s_a(axx);
