@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/26 15:04:40 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/04 04:47:52 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/07 09:56:21 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void p_b(t_content *axx)
 			ft_putstr("pb :");
 			verboz(axx);
 		}
+		VALUE_I(0, 0)--;
+		VALUE_I(1, 0)++;
 	}
 }
 
@@ -40,13 +42,15 @@ void p_a(t_content *axx)
 		{
 			ft_putstr("pa :");
 			verboz(axx);
+			VALUE_I(0, 0)++;
+			VALUE_I(1, 0)--;	
 		}
 	}
 }
 
 void s_a(t_content *axx)
 {
-	if(((t_clist*)LIST_V(0, 1) + 3)->bit!= 0)
+	if(((t_clist*)LIST_V(0, 1) + 3)->bit!= 0 && VALUE_I(0 ,0) > 2)
 	{
 		PUSH2(0, 0);
 		move_chain(axx, -1, -2);
@@ -62,7 +66,7 @@ void s_a(t_content *axx)
 
 void s_b(t_content *axx)
 {
-	if(((t_clist*)LIST_V(1, 1) + 3)->bit!= 0)
+	if(((t_clist*)LIST_V(1, 1) + 3)->bit!= 0 && VALUE_I(1, 0) > 2)
 	{
 		PUSH2(1, 1);
 		move_chain(axx, -1, -2);

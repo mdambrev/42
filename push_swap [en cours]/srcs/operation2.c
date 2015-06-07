@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/26 17:58:21 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/04 03:52:27 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/07 09:55:56 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void rr(t_content *axx)
 
 void rra(t_content *axx)
 {
-	if(((t_clist*)LIST_V(0, 1) + 3)->bit != 0)
+	if(((t_clist*)LIST_V(0, 1) + 3)->bit != 0 && VALUE_I(0, 0) > 2)
 	{
 		PUSH2(0,0);
 		move_chain(axx, 0, 2);
@@ -104,11 +104,12 @@ void rra(t_content *axx)
 
 void rrb(t_content *axx)
 {
-	if(((t_clist*)LIST_V(0, 1) + 3)->bit != 0)
+	if(((t_clist*)LIST_V(1, 1) + 3)->bit != 0 && VALUE_I(1, 0) > 2)
 	{
 		PUSH2(1,1);
 		move_chain(axx, 0, 2);
 		if(VALUE_I(2, 0) == 1)
+
 			ft_putstr("rrb ");
 	}
 	if(VALUE_I(2, 0) == 2)

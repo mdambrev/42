@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/17 00:01:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/05/28 20:04:55 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/04 03:43:07 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@
 # define TMP_V(y, z) 	((axx + y + NB_LIST)->list + z)->bit
 # define TMP_A(y) 		(axx + y + NB_LIST)->list
 # define NB_LIST 		3
-# define NB_TMP			4
+# define NB_TMP			9
 # define PUSH(y, z)    	TMP_A(y) = LIST_A(z)
-# define PUSH2(y, z)	if((((PUSH(0, y)) ) && (PUSH(1, z)) ))
-
+# define PUSH2(y, z)	if((((PUSH(0, y)) ) && (PUSH(1, z))))
+# define VALUE_IN(y, z) ((t_int *)((t_clist *)LIST_V(y, z) + 3)->bit)->t_x
+# define TMP_IN(y, z) ((t_int *)((t_clist *)LIST_V(y + NB_LIST, z) + 3)->bit)->t_x
 
 typedef	struct		s_clist
 {
@@ -55,8 +56,6 @@ t_content			*init_list(void);
 void				list_del(t_content *axx, int nb_list);
 void				del_elem(t_content *axx, int n_list, int pos_x , int sens);
 void				move_chain(t_content *axx, int pos_x, int pos_y);
-void				s_a(t_content *axx);
-void				s_b(t_content *axx);
 void 				sort_list_bul(t_content *axx, int nlist, int (*cmp)(int , int));
 
 #endif
