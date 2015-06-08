@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 04:57:55 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/04 03:37:29 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/08 11:07:37 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ void		push_a(t_content *axx, int pos_x);
 void		push_b(t_content *axx, int pos_x);
 void		test_sort(t_content *axx);
 void		verboz(t_content *axx);
+int 		inc_z(t_content *axx, int nb, int y, t_clist *nb_max);
+int 		inc_list_pos_x(t_content *axx, int *y, int *z, t_clist *nb_max, int nb);
+void		norm_pos_x();
 
 #endif
