@@ -6,11 +6,13 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/23 12:49:11 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/01 05:07:49 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/10 07:43:06 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
+
 int				cmp(int a, int b)
 {
 	return(a > b);
