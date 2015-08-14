@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/06/10 07:41:24 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/08/07 14:10:17 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -25,7 +25,7 @@ SRC 	= main.c \
 		  operation2.c \
 		  operation3.c \
 		  sort.c \
-		  sort_2.c \
+		  sort_3.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/

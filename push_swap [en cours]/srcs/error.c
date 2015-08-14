@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/23 11:01:25 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/05/23 12:46:52 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/14 13:45:51 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,24 @@ void verif_error(char **argv)
 		}
 		x++;
 	}
+}
+
+int	set_option(char *str)
+{
+	if((str[2] != '\0' || (str[1] != 't' && str[1] != 'v' && str[1] != 'r') 
+		|| str[1] == '\0') && ft_isdigit(str[1]) != 1)
+	{
+		ft_putstr("Pushswap: illegal option ");
+		ft_putendl(str);
+		ft_putstr("usage: ./pushswap [-tv] [nb_list ...]\n");
+		return(-1);
+	}
+	if(str[1] == 't')
+		return(0);
+	else if(str[1] == 'v')
+		return(2);
+	else if(str[1] == 'r')
+		return(3);
+	else 
+		return(1);
 }

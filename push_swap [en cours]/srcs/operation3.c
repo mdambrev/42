@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/29 20:14:51 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/04 04:40:12 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/07 15:33:19 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,30 +52,36 @@ void push_b(t_content *axx, int  pos_x)
 	TMP_A(0) = LIST_A(0);
 	LIST_R(NB_LIST);
 	x = TMP_I(0, 0) / 2;
-	if(x == 0)
-		return;
-	if(pos_x <= 0)
+//	printf("x == %d, nb_args == %d\n", x, TMP_I(0, 0));
+	if(	TMP_I(0, 0) % 2 == 1)
+		x++;
+	if(pos_x < 0)
 	{
 		ft_putendl("\nERROR: R_Value < push_b >\n");
 		exit(-1);
 	}
-	if(pos_x < x)
+	if(pos_x <= x)
 	{
-		while(pos_x--)
+		while(pos_x > 0)
+		{
+			pos_x--;
 			op(axx, 8);
+		}
 		op(axx, 4);
 	}
-	else if(pos_x >= x)
+	else if(pos_x > x)
 	{
-		pos_x++;
 		x = TMP_I(0, 0);
-		while(pos_x++ < x)
+		while(pos_x < TMP_I(0, 0) - 1)
+		{
+			pos_x++;
 			op(axx, 5);
+		}
 		op(axx, 4);
 	}
 	TMP_A(0) = LIST_A(0);
 	LIST_R(NB_LIST);
-	TMP_I(0, 0)--;
+	TMP_I(0, 0) = TMP_I(0, 0);
 	TMP_A(0) = LIST_A(1);
 	LIST_R(NB_LIST);
 	TMP_I(0, 0)++;
@@ -111,7 +117,7 @@ void push_a(t_content *axx, int  pos_x)
 	}
 	TMP_A(0) = LIST_A(1);
 	LIST_R(NB_LIST);
-	TMP_I(0, 0)--;
+	//TMP_I(0, 0)--;
 	TMP_A(0) = LIST_A(0);
 	LIST_R(NB_LIST);
 	TMP_I(0, 0)++;
