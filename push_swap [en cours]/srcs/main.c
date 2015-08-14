@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 05:25:44 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/14 14:29:47 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/14 15:59:57 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,15 @@ int main(int argc, char **argv)
 	VALUE_I(2, 0) = x;
 
 	tri_basic(axx);
-	while(argc--)
+	TMP_A(4) = LIST_A(1);
+	LIST_R(NB_LIST + 4);
+	while(LIST_IB(NB_LIST + 4, 0) == 0)
+	{
+		TMP_A(4) = LIST_A(1);
+		LIST_R(NB_LIST + 4);
+		printf("bob == %d \n", VALUE_I(NB_LIST + 4, 0));
 		op(axx, 3);
+	}
 	if(VALUE_I(2, 0) != 1)
 	{
 		if(x == 3)
