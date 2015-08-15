@@ -6,11 +6,11 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/17 18:47:15 by mdambrev          #+#    #+#             */
-/*   Updated: 2014/12/01 20:14:29 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/15 17:43:50 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_striter(char *s, void (*f)(char *))
+void	ft_striter(char *s, void (*f)(char *))
 {
 	if (s && f && *s)
 	{

@@ -6,13 +6,13 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/15 21:25:02 by mdambrev          #+#    #+#             */
-/*   Updated: 2014/12/01 20:26:23 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/15 18:22:42 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_memdel(void **ap)
+void	ft_memdel(void **ap)
 {
 	if (ap)
 	{

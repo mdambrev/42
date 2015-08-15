@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/17 00:01:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/04 03:43:07 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/15 18:10:06 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@
 # define NB_TMP			9
 # define PUSH(y, z)    	TMP_A(y) = LIST_A(z)
 # define PUSH2(y, z)	if((((PUSH(0, y)) ) && (PUSH(1, z))))
-# define VALUE_IN(y, z) ((t_int *)((t_clist *)LIST_V(y, z) + 3)->bit)->t_x
-# define TMP_IN(y, z) ((t_int *)((t_clist *)LIST_V(y + NB_LIST, z) + 3)->bit)->t_x
+# define NORM(y, z)		((t_clist *)LIST_V(y, z) + 3)
+# define VALUE_IN(y, z) ((t_int *)NORM(y, z)->bit)->t_x
+# define NORM2(y, z)	((t_clist *) LIST_V(y + NB_LIST, z) + 3)
+# define TMP_IN(y, z) 	((t_int *)NORM2(y, z)->bit)->t_x
 
 typedef	struct		s_clist
 {
@@ -48,14 +50,16 @@ typedef	struct		s_int
 	int				t_x;
 }					t_int;
 
-void				add_content(t_clist **racine, void *content, t_clist **list);
+void				add_content(t_clist **racine,
+		void *content, t_clist **list);
 t_clist				*init_racine(void);
-void 				push(t_content *axx, const char *list);
+void				push(t_content *axx, const char *list);
 void				add_l(t_clist **list, void *src, int pos_x);
 t_content			*init_list(void);
 void				list_del(t_content *axx, int nb_list);
-void				del_elem(t_content *axx, int n_list, int pos_x , int sens);
+void				del_elem(t_content *axx, int n_list, int pos_x, int sens);
 void				move_chain(t_content *axx, int pos_x, int pos_y);
-void 				sort_list_bul(t_content *axx, int nlist, int (*cmp)(int , int));
+void				sort_list_bul(t_content *axx,
+		int nlist, int (*cmp)(int, int));
 
 #endif

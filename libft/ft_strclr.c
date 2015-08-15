@@ -6,13 +6,13 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/17 04:11:30 by mdambrev          #+#    #+#             */
-/*   Updated: 2014/12/01 20:16:15 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/15 17:43:02 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_strclr(char *s)
+void	ft_strclr(char *s)
 {
 	int i;
 

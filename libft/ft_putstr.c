@@ -6,13 +6,13 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/29 07:22:23 by mdambrev          #+#    #+#             */
-/*   Updated: 2014/12/01 20:19:44 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/15 17:42:35 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr(char const *s)
+void	ft_putstr(char const *s)
 {
 	if (!s)
 		return ;

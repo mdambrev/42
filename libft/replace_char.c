@@ -6,26 +6,26 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/04/23 22:10:18 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/04/27 21:42:38 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/15 17:48:07 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void replace_char(char **str, char ent, char sort)
+void			replace_char(char **str, char ent, char sort)
 {
-	int x;
-	char *str1;
-	int y;
+	int			x;
+	char		*str1;
+	int			y;
 
 	y = 0;
 	str1 = *str;
 	x = nb_word_str(str1, ent);
-	while(x > 0)
+	while (x > 0)
 	{
-		if(str1[y] == ent)
+		if (str1[y] == ent)
 		{
-			while(str1[y] == ent)
+			while (str1[y] == ent)
 				str1[y++] = sort;
 			x--;
 		}
@@ -33,20 +33,19 @@ void replace_char(char **str, char ent, char sort)
 	}
 }
 
-
-void replace_n_char(char **str, char ent, char sort, int n)
+void			replace_n_char(char **str, char ent, char sort, int n)
 {
-	int x;
-	char *str1;
-	int y;
+	int			x;
+	char		*str1;
+	int			y;
 
 	str1 = *str;
 	y = 0;
-	if(nb_char_str(str1, ent) < n)
+	if (nb_char_str(str1, ent) < n)
 		n = nb_char_str(str1, ent);
-	while(n > 0)
+	while (n > 0)
 	{
-		if(str1[y] == ent)
+		if (str1[y] == ent)
 		{
 			str1[y] = sort;
 			n--;
@@ -54,4 +53,3 @@ void replace_n_char(char **str, char ent, char sort, int n)
 		y++;
 	}
 }
-

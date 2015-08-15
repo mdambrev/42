@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/17 02:01:47 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/06/01 04:31:52 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/15 17:32:37 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,25 @@ t_content			*init_list(void)
 void				add_l(t_clist **list, void *src, int pos_x)
 {
 	t_clist			*new;
-	t_clist	*racine = NULL;
-	int sens;
-	t_clist *tmp;
+	t_clist			*racine;
+	int				sens;
+	t_clist			*tmp;
 
+	racine = NULL;
 	if (*list == NULL)
 	{
 		racine = init_racine();
 		*list = racine;
-		if(src == NULL)
-			return;
+		if (src == NULL)
+			return ;
 	}
 	sens = ((pos_x > 0) && (pos_x != 0)) ? 0 : 1;
-	if(pos_x)
+	if (pos_x)
 		pos_x = -pos_x;
 	tmp = *list;
-	while(sens == 0 && pos_x-- > 0)
+	while (sens == 0 && pos_x-- > 0)
 		tmp = tmp->bit;
-	while(sens == 1 && pos_x-- > 0)
+	while (sens == 1 && pos_x-- > 0)
 		tmp = (tmp + 1)->bit;
 	add_content(list, src, &tmp);
 }

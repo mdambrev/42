@@ -18,6 +18,7 @@ _ft_cat:
 	lea		rsi, [rel buffer]
 	mov		rdx, 1
 	syscall
+	jc		.ret
 	cmp 	rax, 0
 	je		.ret
 	push	rdi

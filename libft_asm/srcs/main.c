@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/09 11:45:15 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/05/16 21:37:13 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/06/13 08:43:02 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -360,9 +360,19 @@ void test_memalloc(char **argv)
 	}
 }
 
-int main(int argc, char **argv)
-{
-	if(argc > 1)
+//int main(int argc, char **argv)
+//{
+	int		main(int ac, const char **av)
+   	{
+			ft_cat(0);
+			ft_cat(open(__FILE__, O_RDONLY));
+			ft_cat(open(av[0], O_RDONLY));
+			ft_cat(-42);
+			(void)ac;
+			return (0);
+	}
+
+/*	if(argc > 1)
 	{
 		if(strcmp(argv[1] , "is") == 0 && argc == 2)
 		{
@@ -396,6 +406,6 @@ int main(int argc, char **argv)
 	else
 		printf("Arguments Missing or false\n");
 
-}
+}*/
 
 
