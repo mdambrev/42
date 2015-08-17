@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/08/16 19:20:45 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/08/17 16:54:50 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,6 +22,8 @@ INC_LIB = ./mylib/includes/ \
 
 SRC 	= main.c \
 		  draw.c \
+		  parsing.c \
+		  get_next_line.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/

@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 04:57:55 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/16 15:53:22 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/17 16:49:57 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int			pos_x(t_content *axx, int nb);
 void		tri_basic(t_content *axx);
 int			set_option(char *str);
 void		result(t_content *axx);
+t_content 	*create_list(int nb_list);
+t_content	*main_parse(int argc, char *argv);
 
 #endif

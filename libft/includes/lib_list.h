@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/17 00:01:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/16 17:28:49 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/17 20:07:44 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # define LIST_IC(y, z) 	(LIST_V(y, z) != LIST_V(y, 2))
 # define LIST_R(y) 		LIST_A(y) = LIST_V(y, 2)
 # define LIST_I(y, z) 	(LIST_A(y) = LIST_V(y, z))
-# define NB_CONTENT 	1
-# define VALUE_I(y, z) 	((t_int*)VALUE_C(y, z))->t_x
+# define NB_CONTENT 	4
+# define VALUE_I(y, z) 	((t_int*)VALUE_C(y, 0) + z)->t_x
 # define VALUE_C(y, z) 	((axx + y)->list + z + 3)->bit
 # define TMP_C(y, z)  	((axx + y + NB_LIST)->list + z + 3)->bit
 # define TMP_I(y, z)	((t_int*)TMP_C(y, z))->t_x

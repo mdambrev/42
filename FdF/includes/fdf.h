@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 15:44:55 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/16 17:52:44 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/17 19:39:37 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@
 #include <stdio.h> // a suprimer
 #include <unistd.h>
 #include <mlx.h>
+#include <get_next_line.h>
+#include <fcntl.h>
 
 void draw(void);
+t_content *parsing(int argc, char **argv, int nb_list);
+int	ft_nb_list(int argc, char **argv);
 
 #endif

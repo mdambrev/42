@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/16 14:23:30 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/17 20:14:10 by mdambrev         ###   ########.fr       */
+/*   Created: 2014/12/11 13:05:41 by mdambrev          #+#    #+#             */
+/*   Updated: 2015/08/17 17:07:10 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#ifndef GET_NEXT_LINE_H
 
-//int  sub_main()
+# define GET_NEXT_LINE_H
+# include "libft.h"
+# define BUFF_SIZE 3
 
-int main(int argc, char **argv)
-{
-	int nb_list;
-	t_content *axx;
-	int x;
+int get_next_line(int const fd, char **line);
 
-	x = 0;
-
-	nb_list = ft_nb_list(argc, argv);
-	axx = parsing(argc, argv, nb_list);
-	return(0);
-}
+#endif
