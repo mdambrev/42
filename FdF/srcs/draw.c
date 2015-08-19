@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 15:54:16 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/17 16:33:33 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/19 18:46:36 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void test_triangle(t_clist *param)
 int expose_hook(void *param)
 {
 	(void)param;
-	test_triangle(param);
+	main_aff(PARAM(2), param);
 	return(0);
 }
 
@@ -57,14 +57,15 @@ int key_hook(int keycode ,void *param)
 	return(0);
 }
 
-void draw(void)
+void draw(t_content *axx, int nb_list)
 {
 	t_clist *param;
 
 	param = init_param();
+	CONTENT(0) = nb_list;
 	PARAM(0) = mlx_init();
-	PARAM(1) = mlx_new_window(PARAM(0) , 400, 400, "bob");
-	test_triangle(param);
+	PARAM(1) = mlx_new_window(PARAM(0) , HAUTEUR, LARGEUR, "bob");
+	PARAM(2) = axx;
 	mlx_key_hook(PARAM(1), key_hook, param);
 	mlx_expose_hook(PARAM(1), expose_hook, param);
 	mlx_loop(PARAM(0));

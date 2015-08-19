@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/17 16:33:30 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/17 20:13:01 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/19 14:50:20 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,30 @@ t_content *create_list(int nb_list)
 	return (axx);
 }
 
-void write_list(t_content *axx, char *line)
+int write_list(t_content *axx, char *line)
 {
 	static int compteur = 0;
 	char **tab;
 	int x;
 	t_int	*tmp;
+	static int len;
 
 	x = 0;
 	tab = ft_strsplit(line, ' ');
+	tmp = (t_int*)malloc(sizeof(tmp) * NB_CONTENT);
+	tmp->t_x = 0;
+	LIST_V(0, 3) = tmp;
 	while(tab[x])
 	{
-		tmp = (t_int*)malloc(sizeof(tmp) * NB_CONTENT);
+		tmp = (t_int*)malloc(sizeof(tmp) * NB_CONTENT + 5);
 		tmp->t_x = ft_atoi(tab[x]);
 		add_l(&LIST_A(compteur), tmp, -1);
 		x++;
 	}
+	if(len < x)
+		len = x;
 	compteur++;
+	return(len);
 }
 
 t_content	 *parsing(int argc, char **argv, int nb_list)
@@ -76,10 +83,12 @@ t_content	 *parsing(int argc, char **argv, int nb_list)
 	char	*line;
 	t_content *axx;
 	int		x;
+	int 	len;
 
 	
 	fd = 0;
 	x = 0;
+	len = 0;
 	axx = create_list(nb_list);
 	if((fd = open(argv[1], O_RDONLY)) == -1 || argc != 2)
 	{
@@ -88,18 +97,20 @@ t_content	 *parsing(int argc, char **argv, int nb_list)
 	}
 	while (get_next_line(fd, &line) == 1)
 	{
-		write_list(axx, line);
+		len = write_list(axx, line);
 		free(line);
 		line = NULL;
 	}
 	close(fd);
-	while(x < nb_list)
+	LIST_R(0);
+	VALUE_I(0, 0) = len;
+/*	while(x < nb_list)
 	{
 		LIST_R(x);
 		while(LIST_IB(x, 0) == 0)
 			printf(" %d", VALUE_I(x, 0));
 		printf("\n");
 		x++;
-	}
+	}*/
 	return(axx);
 }

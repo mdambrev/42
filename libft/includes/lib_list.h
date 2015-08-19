@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/17 00:01:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/17 20:07:44 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/19 12:53:26 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@
 # define VALUE_IN(y, z) ((t_int *)NORM(y, z)->bit)->t_x
 # define NORM2(y, z)	((t_clist *) LIST_V(y + NB_LIST, z) + 3)
 # define TMP_IN(y, z) 	((t_int *)NORM2(y, z)->bit)->t_x
+
+
+# define VALUE_INC(y, z, x) ((t_int *)NORM3(y, z)->bit + x)->t_x
+
+# define NORM3(y, z)		((t_clist *)LIST_V(y, z) + 3)
 
 typedef	struct		s_clist
 {
