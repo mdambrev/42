@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   transform_list.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/16 14:23:30 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/20 18:44:46 by mdambrev         ###   ########.fr       */
+/*   Created: 2015/08/20 16:31:45 by mdambrev          #+#    #+#             */
+/*   Updated: 2015/08/20 20:25:18 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "Fdf.h"
 
-//int  sub_main()
-
-int main(int argc, char **argv)
+void transform_value(t_content *axx, int x)
 {
-	int nb_list;
-	t_content *axx;
+	float constante;
+
+	constante = 2;;
+	if(VALUE_I(x, 0) != 0)
+	{
+		VALUE_I(x, 1) += ((constante * VALUE_I(x, 0)) * -1);
+		VALUE_I(x, 2) += (((constante / 2) * VALUE_I(x, 0)) * - 1);
+	}
+	return ;
+}
+
+void projection_parallele(t_content *axx, int nb_list)
+{
 	int x;
 
 	x = 0;
-
-	nb_list = ft_nb_list(argc, argv);
-	axx = parsing(argc, argv, nb_list);
-	main_pos(axx, nb_list);
-	projection_parallele(axx, nb_list);
-	draw(axx, nb_list);
-	LIST_R(0);
-	return(0);
+	while(x < nb_list)
+	{
+		LIST_R(x);
+		while(LIST_IB(x, 0) == 0)
+		{
+			transform_value(axx, x);	
+		}
+		x++;
+	}
 }

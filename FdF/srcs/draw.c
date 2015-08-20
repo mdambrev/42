@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 15:54:16 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/19 18:46:36 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/20 18:44:59 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,6 @@ t_clist *init_param(void)
 	content = (t_int *)malloc(sizeof(t_int) * NB_INT);
 	param->bit = content;
 	return(param);
-}
-
-void test_triangle(t_clist *param)
-{
-	int x;
-	int y;
-
-	x = 100;
-	y = 0;
-	while(y < 200)
-	{
-		x = 0;
-		while(x < 200)
-		{
-			mlx_pixel_put(PARAM(0), PARAM(1), x, y, 0xFF0000);
-			x++;
-		}
-		y++;
-	}
 }
 
 int expose_hook(void *param)

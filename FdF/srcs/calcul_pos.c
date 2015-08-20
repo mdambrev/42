@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/18 17:39:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/18 19:08:52 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/20 19:27:11 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,8 @@ int main_pos(t_content *axx, int nb_list)
 	int bordure;
 	
 	bordure = 50;
-	hauteur = (HAUTEUR - bordure) / nb_list;
-	largeur = (LARGEUR - bordure) / VALUE_I(0, 0);
+	hauteur = (LARGEUR - bordure) / nb_list;
+	largeur = (HAUTEUR - bordure) / VALUE_I(0, 0);
 	bordure = 50;
 	add_position_h(axx, hauteur, nb_list, bordure);
 	add_position_l(axx, largeur, nb_list, bordure);

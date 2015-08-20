@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/17 16:33:30 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/19 14:50:20 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/08/20 18:57:17 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int ft_nb_list(int argc, char **argv)
 	if((fd = open(argv[1], O_RDONLY)) == -1 || argc != 2)
 	{
 		printf("Error Get_next_line \n");
-		return(-1);
+		exit(-1);
 	}
 	while (get_next_line(fd, &line) == 1)
 	{
@@ -93,7 +93,7 @@ t_content	 *parsing(int argc, char **argv, int nb_list)
 	if((fd = open(argv[1], O_RDONLY)) == -1 || argc != 2)
 	{
 		printf("Error Get_next_line \n");
-		return(NULL);
+		exit(-1);
 	}
 	while (get_next_line(fd, &line) == 1)
 	{

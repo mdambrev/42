@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/08/18 20:24:56 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/08/20 19:44:01 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,7 @@ FLAGS 	= -Wall -Wextra -Werror -g
 
 MLXFLAGS = -lmlx -framework OpenGL -framework AppKit  
 
-NAME 	= FdF
+NAME 	= fdf
 
 LIB 	= mylib/libft.a
 
@@ -27,6 +27,7 @@ SRC 	= main.c \
 		  gestion_erreur.c \
 		  calcul_pos.c \
 		  affichage.c \
+		  transform_list.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/
