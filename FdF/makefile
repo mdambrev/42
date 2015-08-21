@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/08/20 19:44:01 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/08/21 15:28:07 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,10 +24,10 @@ SRC 	= main.c \
 		  draw.c \
 		  parsing.c \
 		  get_next_line.c \
-		  gestion_erreur.c \
 		  calcul_pos.c \
 		  affichage.c \
 		  transform_list.c \
+		  affichage2.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/
