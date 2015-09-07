@@ -6,26 +6,28 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/08/22 14:01:34 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/09/06 14:19:16 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-FLAGS 	= -Wall -Wextra -Werror
+FLAGS 	= -Wall -Wextra -Werror -g -Ofast
 
-NAME 	= push_swap
+NAME 	= Fractol
 
 LIB 	= mylib/libft.a
+
+MLXFLAGS= -lmlx -framework OpenGL -framework Appkit
 
 INC_LIB = ./mylib/includes/
 
 SRC 	= main.c \
-		  error.c \
-		  list.c \
-		  operation.c \
-		  operation2.c \
-		  operation3.c \
-		  sort.c \
-		  sort_3.c \
+		  draw.c \
+		  julia.c \
+		  mandelbrot.c \
+		  parsing.c \
+		  direction.c \
+		  put_image.c \
+		  chromosome.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/
@@ -37,8 +39,9 @@ all:$(NAME)
 
 $(NAME):
 	@make -C mylib/
+	@make -C mlx/
 	@gcc $(FLAGS) -c $(SRCS) -I $(INC_LIB) -I $(INCDIR)
-	@gcc $(FLAGS) -o $(NAME) $(OBJ) -L./mylib -lft
+	@gcc $(FLAGS) -o $(NAME) $(OBJ) $(MLXFLAGS) ./mlx/libmlx.a -L./mylib -lft
 
 
 relib:

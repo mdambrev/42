@@ -6,40 +6,41 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/08/22 14:01:34 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/08/22 17:59:02 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-FLAGS 	= -Wall -Wextra -Werror
+FLAGS 	= -Wall -Wextra -Werror -g
 
-NAME 	= push_swap
+MLXFLAGS = -lmlx -framework OpenGL -framework AppKit  
+
+NAME 	= fdf
 
 LIB 	= mylib/libft.a
 
 INC_LIB = ./mylib/includes/
 
 SRC 	= main.c \
-		  error.c \
-		  list.c \
-		  operation.c \
-		  operation2.c \
-		  operation3.c \
-		  sort.c \
-		  sort_3.c \
+		  draw.c \
+		  parsing.c \
+		  get_next_line.c \
+		  calcul_pos.c \
+		  affichage.c \
+		  transform_list.c \
+		  affichage2.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/
 INCDIR  = ./includes/
 SRCS    = $(addprefix $(SRCDIR), $(SRC))
 
-
 all:$(NAME)
 
 $(NAME):
 	@make -C mylib/
+	@make -C mlx/
 	@gcc $(FLAGS) -c $(SRCS) -I $(INC_LIB) -I $(INCDIR)
-	@gcc $(FLAGS) -o $(NAME) $(OBJ) -L./mylib -lft
-
+	@gcc $(FLAGS) -o $(NAME) $(OBJ) $(MLXFLAGS) ./mlx/libmlx.a  -L./mylib -lft  
 
 relib:
 	cd mylib; make clean; make fclean; make;

@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/17 00:01:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/19 12:53:26 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/06 08:00:19 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ typedef	struct		s_int
 {
 	int				t_x;
 }					t_int;
+
+typedef	struct		s_float
+{
+	long double			t_x;
+}					t_float;
+
 
 void				add_content(t_clist **racine,
 		void *content, t_clist **list);
