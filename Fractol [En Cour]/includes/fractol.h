@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 15:48:52 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/06 14:59:55 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/07 15:30:02 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # define NB_INT 10
 # define NB_PARAM 3 + 1
-# define LARGEUR 400
-# define HAUTEUR 400
+# define LARGEUR 960
+# define HAUTEUR 540
 # define CONTENT(x) ((t_float *)param->bit + x)->t_x
 # define PARAM(x)	((t_clist *)param + 1 + x)->bit
 # define PointerMotionMask	(1L<<6)

@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 15:54:16 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/06 14:58:14 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/07 15:37:48 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,17 @@ int			expose_hook(t_clist *param)
 
 int			mouse_hook(int button, int x, int y, t_clist *param)
 {
-	if(button == 1)
+	printf("button == %d\n", button);
+	if(button == 1 || button == 7)
 	{
 		CONTENT(5) *= 1.3;
 		if(CONTENT(0) != 2)
 			CONTENT(6) += 40;
 		else 
-			CONTENT(6) += 40;
+			CONTENT(6) += 20;
 		expose_hook(param);
 	}
-	else if((button == 2  || button == 3) && CONTENT(5) > 0)
+	else if((button == 2  || button == 6) && CONTENT(5) > 0)
 	{
 		CONTENT(5) /= 1.3;
 		CONTENT(6) -= 5;
@@ -95,8 +96,13 @@ int			key_hook(int keycode, t_clist *param)
 	}
 	else if (keycode == 53)
 		exit(0);
+	if(keycode == 69)
+		CONTENT(6) += 100;
+	if(keycode == 78)
+		CONTENT(6) -= 100;
 	direction(param, keycode);
-	if((keycode <= 126 && keycode >= 123) || keycode == 69 || keycode == 76)
+	if((keycode <= 126 && keycode >= 123 ) || keycode == 78 
+			|| keycode == 69 || keycode == 76)
 		expose_hook(param);
 	return (0);
 }
@@ -106,7 +112,7 @@ int Motion_mouse_hook(int x, int y, t_clist *param)
 	static long double t_x = 0;
 	static long double t_y = 0;
 
-	if(CONTENT(14) == -1) 
+	if(CONTENT(14) == -1 || CONTENT(0) != 2) 
 		return(0);
 	t_x = LARGEUR / 2;
 	t_y = HAUTEUR / 2;
