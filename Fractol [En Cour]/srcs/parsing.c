@@ -6,13 +6,26 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 15:56:33 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/06 14:18:56 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/08 10:42:09 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <Fractol.h>
 
-void put_list(void)
+t_clist						*init_param(void)
+{
+	t_clist					*param;
+	t_float					*content;
+
+	param = (t_clist *)malloc(sizeof(t_clist) * NB_PARAM + 10);
+	content = (t_float *)malloc(sizeof(t_float) * NB_INT + 10100);
+	param->bit = content;
+	free(PARAM(2));
+	PARAM(2) = NULL;
+	return (param);
+}
+
+void						put_list(void)
 {
 	ft_putendl("Liste des fractal disponible :");
 	ft_putendl("-- Mandelbrot");
@@ -21,15 +34,15 @@ void put_list(void)
 	exit(0);
 }
 
-void write_param(int argc, char **argv, t_clist *param)
+void						write_param(int argc, char **argv, t_clist *param)
 {
-	if(argc != 2)
+	if (argc != 2)
 		put_list();
-	if(ft_strequ(argv[1], "Mandelbrot"))
+	if (ft_strequ(argv[1], "Mandelbrot"))
 		CONTENT(0) = 1;
-	else if(ft_strequ(argv[1], "Julia"))
+	else if (ft_strequ(argv[1], "Julia"))
 		CONTENT(0) = 2;
-	else if(ft_strequ(argv[1], "Chromosome"))
+	else if (ft_strequ(argv[1], "Chromosome"))
 		CONTENT(0) = 3;
 	else
 		put_list();

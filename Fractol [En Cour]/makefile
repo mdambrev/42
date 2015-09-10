@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/09/06 14:19:16 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/09/08 11:05:31 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,11 +14,11 @@ FLAGS 	= -Wall -Wextra -Werror -g -Ofast
 
 NAME 	= Fractol
 
-LIB 	= mylib/libft.a
+LIB 	= libft/libft.a
 
 MLXFLAGS= -lmlx -framework OpenGL -framework Appkit
 
-INC_LIB = ./mylib/includes/
+INC_LIB = ./libft/includes/
 
 SRC 	= main.c \
 		  draw.c \
@@ -38,21 +38,21 @@ SRCS    = $(addprefix $(SRCDIR), $(SRC))
 all:$(NAME)
 
 $(NAME):
-	@make -C mylib/
+	@make -C libft/
 	@make -C mlx/
 	@gcc $(FLAGS) -c $(SRCS) -I $(INC_LIB) -I $(INCDIR)
-	@gcc $(FLAGS) -o $(NAME) $(OBJ) $(MLXFLAGS) ./mlx/libmlx.a -L./mylib -lft
+	@gcc $(FLAGS) -o $(NAME) $(OBJ) $(MLXFLAGS) ./mlx/libmlx.a -L./libft -lft
 
 
 relib:
-	cd mylib; make clean; make fclean; make;
+	cd libft; make clean; make fclean; make;
 
 clean: 
-	@Make -C mylib/ clean
+	@Make -C libft/ clean
 	@rm -rf $(OBJ)
 
 fclean: clean
-	@Make -C mylib/ fclean
+	@Make -C libft/ fclean
 	@rm -rf $(NAME)
 norm:
 	norminette $(SRCDIR)
