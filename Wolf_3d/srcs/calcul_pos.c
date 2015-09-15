@@ -6,33 +6,11 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/18 17:39:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/14 13:17:19 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/15 17:44:46 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf_3d.h"
-
-/*void		add_position_h(t_content *axx, int h, int nb_list, int bordure)
-{
-	int		x;
-	int		content;
-
-	x = 0;
-	content = bordure;
-	while (x < nb_list)
-	{
-		LIST_R(x);
-		while (LIST_IB(x, 0) == 0)
-		{
-			{
-				VALUE_I(x, 2) = content;
-			}
-		}
-		content = content + h;
-		LIST_R(x);
-		x++;
-	}
-}*/
 
 void		add_position_l(t_content *axx, int nb_list)
 {
@@ -54,6 +32,58 @@ void		add_position_l(t_content *axx, int nb_list)
 		y++;
 	}
 }
+
+int 	nb_malloc(t_content *axx,int nb_list)
+{
+	int		x;
+	int		y;
+	int 	z;
+
+	y = 0;
+	z = 0;
+	while (y < nb_list)
+	{
+		LIST_R(y);
+		x = 0;
+		while (LIST_IB(y, 0) == 0)
+		{
+			x++;
+		}
+		if(x > z)
+			z = x;
+		y++;
+	}
+	return(z);
+}
+
+void transform_map(t_content *axx,int nb_list, t_clist *param)
+{
+	int **tab;
+	int x;
+	int y;
+
+	y = 0;
+	tab = (int **)malloc(sizeof(int *) * nb_list + 1);
+	x = nb_malloc(axx, nb_list);
+	while(y < nb_list)
+		tab[y++] = (int*)malloc(sizeof(int) * x);
+	tab[y] = 0;
+	y = 0;
+	while(y < nb_list)
+	{
+		x = 0;
+		LIST_R(y);
+		while(LIST_IB(y, 0) == 0)
+		{
+			tab[y][x] = VALUE_I(y ,0);
+			x++;
+		}
+		LIST_R(y);
+		y++;
+	}
+	PARAM(6) = tab;
+}
+
 
 int			main_pos(t_content *axx, int nb_list)
 {

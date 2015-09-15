@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/13 14:26:23 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/14 17:50:27 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/15 18:46:37 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ t_env init_map(void)
 	e.dir_y = 0;
 	e.plan_x = 0;
 	e.plan_y = 1;
+	e.left = 0;
+	e.right = 0;
+	e.down = 0;
+	e.up = 0;
+	e.rotate = 0;
+	e.rev_rotate = 0;
+	e.vit_marche = 0.02;
+	e.vit_rotate = 0.2;
 	return(e);
 }
 
@@ -73,12 +81,13 @@ void set_vector_value(t_clist *param)
 
 void search_block(t_clist *param, t_content *axx)
 {
-	int x;
 	t_env *e;
 
 	(void)axx;
 	e = PARAM(5);
-	x = 0;
+	int **tab;
+	
+	tab = PARAM(6);
 //	printf("bobo e->map_y == %d \n e->map_x = %d\n", e->map_y, e->map_x);
 	while(e->hit == 0)
 	{
@@ -97,12 +106,8 @@ void search_block(t_clist *param, t_content *axx)
 			e->side = 1;
 		}
 //		printf("e->map_y == %d \n e->map_x = %d\n", e->map_y, e->map_x);
-		LIST_R(e->map_y);
-		while(LIST_IB(e->map_y, 0) == 0 && x < e->map_x)
-			x++;
-	 	if (VALUE_I(e->map_y, 0) > 0) 
+	 	if (tab[e->map_y][e->map_x] > 0) 
 		 	e->hit = 1; 
-		LIST_R(e->map_y);
 	}
 }
 

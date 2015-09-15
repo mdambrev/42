@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/09/14 15:36:58 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/09/15 13:23:44 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -29,6 +29,7 @@ SRC 	= main.c \
 		  calcul_pos.c \
 		  moteur.c \
 		  add.c \
+		  deplacement.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/

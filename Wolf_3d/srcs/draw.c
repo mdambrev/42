@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 15:54:16 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/14 17:56:34 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/15 17:43:50 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int							mouse_hook(int button, int x, int y, t_clist *param)
 		(void)y;
 		(void)button;
 		(void)param;
-		expose_hook(param);
+//		expose_hook(param);
 		return (0);
 }
 
@@ -53,26 +53,18 @@ int							motion_mouse_hook(int x, int y, t_clist *param)
 	(void)x;
 	(void)y;
 	(void)param;
-	expose_hook(param);
+//	expose_hook(param);
 	return (0);
 }
 
 int							key_press(int keycode, t_clist *param)
 {
-	(void)keycode;
-	(void)param;
-	printf("keycode = %d\n", keycode);
-	/*if(keycode == 53)
-	{
-		//mlx_destroy_image(PARAM(0), PARAM(2));
-		exit(-1);
-	}
-	printf("key_hook == %d\n", keycode);
-	expose_hook(param);*/
+	if (boolean_mouv(param, keycode) == 1)
+		expose_hook(param);
 	return (0);
 }
 
-void						draw(int argc, char **argv, t_content *axx)
+void						draw(int argc, char **argv, t_content *axx, int nb_list)
 {
 	t_clist					*param;
 	t_env					e;
@@ -83,6 +75,7 @@ void						draw(int argc, char **argv, t_content *axx)
 	PARAM(4) = axx;
 	e = init_map();
 	PARAM(5) = &e;
+	transform_map(axx, nb_list, param);
 	mlx_hook(PARAM(1), 6, (1L << 6), motion_mouse_hook, param);
 	mlx_hook(PARAM(1), 2, (1L << 6), key_press, param);
 	mlx_key_hook(PARAM(1), key_hook, param);

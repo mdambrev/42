@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 17:50:53 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/14 13:52:37 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/15 17:02:33 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int			main(int argc, char **argv)
 		printf("\n");
 		x++;
 	}*/
-	draw(argc, argv, axx);
+	draw(argc, argv, axx, nb_list);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 15:48:52 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/14 16:06:15 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/15 18:43:05 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # define NB_INT 100
 # define NB_PARAM 100
-# define LARGEUR 480
-# define HAUTEUR 240
+# define LARGEUR 960
+# define HAUTEUR 480
 # define CONTENT(x) ((t_float *)param->bit + x)->t_x
 # define PARAM(x)	((t_clist *)param + 1 + x)->bit
 # include "libft.h"
@@ -48,18 +48,30 @@ typedef	struct			s_env
 	double 	side_dist_y;
 	double	delta_dist_y;
 	double	delta_dist_x;
-	int		step_x;
-	int		step_y;
+	double		step_x;
+	double		step_y;
 	int		hit;
 	int		side;
 	double	perpwalldist;
 	int 	draw_start;
 	int 	draw_end;
-	int 	line_height;
+	double 	line_height;
+	int		up;
+	int		down;
+	int		left;
+	int		right;
+	int		rotate;
+	int		rev_rotate;
+	double	vit_marche;
+	double	vit_rotate;
+	double	old_dir_x;
+	double	old_dir_y;
+	double	old_plan_x;
+	double	old_plan_y;
 }						t_env;
 
 t_content 			*parsing(int argc, char **argv, int nb_list);
-void				draw(int argc, char **argv, t_content *axx);
+void				draw(int argc, char **argv, t_content *axx, int nb_list);
 void				direction(t_clist *param, int keycode);
 void				init_image(t_clist *param);
 void				pixel_put(t_clist *param, int x, int y, int col);
@@ -74,5 +86,9 @@ void 				search_block(t_clist *param, t_content *axx);
 void				correction_optique(t_clist *param);
 void				set_hauteur(t_clist *param);
 void				write_buffeur(t_clist *param, int x);
+void				set_mouv(t_clist *param, t_content *axx);
+int					boolean_mouv(t_clist *param, int keycode);
+int					boolean_stop_mouv(t_clist *param, int keycode);
+void				transform_map(t_content *axx, int  nb_list, t_clist *param);
 
 #endif
