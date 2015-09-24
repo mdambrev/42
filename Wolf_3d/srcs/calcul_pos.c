@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/18 17:39:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/15 17:44:46 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/24 18:51:29 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ void transform_map(t_content *axx,int nb_list, t_clist *param)
 	int **tab;
 	int x;
 	int y;
+	int len_min;
 
 	y = 0;
+	len_min = 2147483647;
 	tab = (int **)malloc(sizeof(int *) * nb_list + 1);
 	x = nb_malloc(axx, nb_list);
 	while(y < nb_list)
@@ -78,9 +80,13 @@ void transform_map(t_content *axx,int nb_list, t_clist *param)
 			tab[y][x] = VALUE_I(y ,0);
 			x++;
 		}
+		if(len_min > x)
+			len_min = x;
 		LIST_R(y);
 		y++;
 	}
+	CONTENT(5) = len_min;
+	CONTENT(6) = nb_list;
 	PARAM(6) = tab;
 }
 

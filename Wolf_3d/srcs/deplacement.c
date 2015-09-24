@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/15 13:23:57 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/15 18:01:26 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/24 20:38:09 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,21 @@ void	set_direction(t_content *axx, t_clist *param)
 
 	e = PARAM(5);
 	tab = PARAM(6);
+	e->vit_marche = 0.08;
 	if (e->up == 1)
 	{
-		if(tab[(int)(e->pos_x + (e->dir_x * e->vit_marche))][(int)(e->pos_y)] == 0)
-		   	e->pos_x += e->dir_x * e->vit_marche;
-		if(tab[(int)(e->pos_x)][(int)(e->pos_y + (e->dir_y * e->vit_marche))] == 0)
-		   	e->pos_y += e->dir_y * e->vit_marche;
+		if((e->pos_x + e->dir_x * e->vit_marche) < CONTENT(5) - 1 && e->pos_x + e->dir_x * e->vit_marche > 1)
+			e->pos_x += e->dir_x * e->vit_marche;
+		if((e->pos_y + e->dir_y * e->vit_marche) < CONTENT(6) - 1&& e->pos_y + e->dir_y * e->vit_marche > 1)
+			e->pos_y += e->dir_y * e->vit_marche;
 		e->up = 0;
 	}
 
 	if (e->down == 1)
-	{
-		if(tab[(int)(e->pos_x - (e->dir_x * e->vit_marche))][(int)(e->pos_y)] == 0) 
+	{			
+	if((e->pos_x - e->dir_x * e->vit_marche) < CONTENT(5) - 1 && e->pos_x - e->dir_x * e->vit_marche > 1) 
 			e->pos_x -= e->dir_x * e->vit_marche;
-		if(tab[(int)(e->pos_x)][(int)(e->pos_y - (e->dir_y * e->vit_marche))] == 0) 
+		if((e->pos_y - e->dir_y * e->vit_marche) < CONTENT(6) - 1&& e->pos_y - e->dir_y * e->vit_marche > 1)
 			e->pos_y -= e->dir_y * e->vit_marche;
 		e->down = 0;
 	}

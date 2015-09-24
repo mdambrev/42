@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 15:48:52 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/15 18:43:05 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/23 17:08:58 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define NB_INT 100
 # define NB_PARAM 100
 # define LARGEUR 960
-# define HAUTEUR 480
+# define HAUTEUR 540
 # define CONTENT(x) ((t_float *)param->bit + x)->t_x
 # define PARAM(x)	((t_clist *)param + 1 + x)->bit
 # include "libft.h"

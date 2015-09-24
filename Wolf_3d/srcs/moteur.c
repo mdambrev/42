@@ -6,7 +6,7 @@
 /*   By: mdambrev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/11 14:24:36 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/15 14:36:36 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/09/23 19:02:13 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ void set_to_buffeur(t_clist *param, t_content *axx)
 	while(x < LARGEUR)
 	{
 		init_calcul(param, x);
+		set_mouv(param, axx);
 		set_vector_value(param);
+		set_mouv(param, axx);
 		search_block(param, axx);
 		correction_optique(param);
 		set_hauteur(param);
