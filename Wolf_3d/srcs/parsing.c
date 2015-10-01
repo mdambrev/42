@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/17 16:33:30 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/23 19:03:19 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/01 06:44:27 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,14 @@ int				write_list(t_content *axx, char *line)
 		tmp->t_x = ft_atoi(tab[x++]);
 		add_l(&LIST_A(compteur), tmp, -1);
 	}
+	x = 0;
+	while(tab[x])
+	{
+		free(tab[x]);
+		x++;
+	}
+	free(tab[x]);
+	free(tab);
 	if (len < x)
 		len = x;
 	compteur++;
@@ -101,7 +109,7 @@ t_content		*parsing(int argc, char **argv, int nb_list)
 	fd = 0;
 	x = 0;
 	len = 0;
-	axx = create_list(nb_list);
+	axx= create_list(nb_list);
 	if ((fd = open(argv[1], O_RDONLY)) == -1 || argc != 2)
 		exit(-1);
 	while (get_next_line(fd, &line) == 1)

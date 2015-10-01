@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 17:02:57 by mdambrev          #+#    #+#             */
-/*   Updated: 2014/12/27 14:51:39 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/01 06:47:13 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,37 @@
 static char			*mjoin(char *a, char *b)
 {
 	char			*result;
+	char			*tmp;
 
+	tmp = NULL;
 	if (!a)
-		return (ft_strdup(b));
+	{
+		tmp = ft_strdup(b);
+		return (tmp);
+	}
 	result = ft_strjoin(a, b);
 	free(a);
+	a = NULL;
+	free(b);
+	b = NULL;
 	return (result);
 }
 
 static int			check(char **str, char *line)
 {
 	int				x;
+	char			*tmp;
 
 	x = 0;
+	tmp = NULL;
 	while (line[x] != '\0')
 	{
 		if (line[x] == '\n')
 		{
 			line[x] = '\0';
+			tmp = *str;
 			*str = mjoin(*str, &line[x + 1]);
+			free(tmp);
 			return (-1);
 		}
 		x++;
@@ -46,13 +58,18 @@ int					get_next_line(int const fd, char **line)
 	int				ret;
 	static char		*str = 0;
 	char			*buf;
+	char			*tmp;
 
+	tmp = NULL;
 	if ((buf = (char*)malloc(sizeof(char) * (BUFF_SIZE + 1))) == NULL)
 		return (-1);
 	if (!line)
 		return (-1);
 	*line = ft_strnew(0);
+	tmp = *line;
 	*line = mjoin(str, *line);
+//	if(tmp != NULL)
+//		free(tmp);
 	str = 0;
 	while (check(&str, *line) != -1)
 	{
@@ -64,7 +81,9 @@ int					get_next_line(int const fd, char **line)
 			ft_strdel(&buf);
 			return (ft_strlen(*line) > 0);
 		}
+		tmp = *line;
 		*line = ft_strjoin(*line, buf);
+		free(tmp);
 	}
 	ft_strdel(&buf);
 	return (1);

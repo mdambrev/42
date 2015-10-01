@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/16 15:54:16 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/08 12:17:01 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/01 05:02:42 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int							mouse_hook(int button, int x, int y, t_clist *param)
 			if (CONTENT(6) < 600)
 				CONTENT(6) += 3;
 		}
-		expose_hook(param);
+//		expose_hook(param);
 	}
 	else if ((button == 2 || button == 6) && CONTENT(5) > 0)
 	{
@@ -60,7 +60,7 @@ int							mouse_hook(int button, int x, int y, t_clist *param)
 			CONTENT(6) -= 35;
 		else
 			CONTENT(6) -= 3;
-		expose_hook(param);
+//		expose_hook(param);
 	}
 	if (CONTENT(5) == 0 && (x <= 0 || x > 0))
 		CONTENT(5) = 1;
@@ -91,9 +91,9 @@ int							key_hook(int keycode, t_clist *param)
 	if (keycode == 78)
 		CONTENT(6) -= 100;
 	direction(param, keycode);
-	if ((keycode <= 126 && keycode >= 123) || keycode == 78
-			|| keycode == 69 || keycode == 76)
-		expose_hook(param);
+//	if ((keycode <= 126 && keycode >= 123) || keycode == 78
+//			|| keycode == 69 || keycode == 76)
+//		expose_hook(param);
 	return (0);
 }
 
@@ -108,7 +108,7 @@ int							motion_mouse_hook(int x, int y, t_clist *param)
 	t_y = HAUTEUR / 2;
 	CONTENT(7) = 1 * (x / t_x) - 1;
 	CONTENT(8) = 1 * (y / t_y) - 1;
-	expose_hook(param);
+//	expose_hook(param);
 	return (0);
 }
 
@@ -130,6 +130,7 @@ void						draw(int argc, char **argv)
 	CONTENT(5) = 100;
 	PARAM(0) = mlx_init();
 	PARAM(1) = mlx_new_window(PARAM(0), LARGEUR, HAUTEUR, "fractol");
+	mlx_loop_hook(PARAM(0), &expose_hook, param);
 	mlx_hook(PARAM(1), 6, (1L << 6), motion_mouse_hook, param);
 	mlx_key_hook(PARAM(1), key_hook, param);
 	mlx_mouse_hook(PARAM(1), mouse_hook, param);
