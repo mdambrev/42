@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/10 17:02:57 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/01 06:47:13 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/02 02:07:26 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,27 @@
 static char			*mjoin(char *a, char *b)
 {
 	char			*result;
-	char			*tmp;
 
-	tmp = NULL;
 	if (!a)
 	{
-		tmp = ft_strdup(b);
-		return (tmp);
+		return (ft_strdup(b));
+	}
+	result = ft_strjoin(a, b);
+	free(a);
+	a = NULL;
+	free(b);
+	b = NULL;
+	return (result);
+}
+
+static char			*m2join(char *a, char *b)
+{
+	char			*result;
+
+	b = ft_strnew(0);
+	if (!a)
+	{
+		return (b);
 	}
 	result = ft_strjoin(a, b);
 	free(a);
@@ -60,16 +74,9 @@ int					get_next_line(int const fd, char **line)
 	char			*buf;
 	char			*tmp;
 
-	tmp = NULL;
 	if ((buf = (char*)malloc(sizeof(char) * (BUFF_SIZE + 1))) == NULL)
 		return (-1);
-	if (!line)
-		return (-1);
-	*line = ft_strnew(0);
-	tmp = *line;
-	*line = mjoin(str, *line);
-//	if(tmp != NULL)
-//		free(tmp);
+	*line = m2join(str, *line);
 	str = 0;
 	while (check(&str, *line) != -1)
 	{

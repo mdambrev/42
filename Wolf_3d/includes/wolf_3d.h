@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 15:48:52 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/23 17:08:58 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/02 02:21:09 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # include <stdio.h>
 # include <math.h>
 
-typedef	struct			s_env
+typedef	struct		s_env
 {
 	double	pos_x;
 	double	pos_y;
@@ -45,17 +45,17 @@ typedef	struct			s_env
 	int		map_x;
 	int		map_y;
 	double	side_dist_x;
-	double 	side_dist_y;
+	double	side_dist_y;
 	double	delta_dist_y;
 	double	delta_dist_x;
-	double		step_x;
-	double		step_y;
+	double	step_x;
+	double	step_y;
 	int		hit;
 	int		side;
 	double	perpwalldist;
-	int 	draw_start;
-	int 	draw_end;
-	double 	line_height;
+	int		draw_start;
+	int		draw_end;
+	double	line_height;
 	int		up;
 	int		down;
 	int		left;
@@ -68,9 +68,9 @@ typedef	struct			s_env
 	double	old_dir_y;
 	double	old_plan_x;
 	double	old_plan_y;
-}						t_env;
+}					t_env;
 
-t_content 			*parsing(int argc, char **argv, int nb_list);
+t_content			*parsing(int argc, char **argv, int nb_list);
 void				draw(int argc, char **argv, t_content *axx, int nb_list);
 void				direction(t_clist *param, int keycode);
 void				init_image(t_clist *param);
@@ -82,13 +82,17 @@ void				set_to_buffeur(t_clist *param, t_content *axx);
 t_env				init_map(void);
 void				init_calcul(t_clist *param, double x);
 void				set_vector_value(t_clist *param);
-void 				search_block(t_clist *param, t_content *axx);
+void				search_block(t_clist *param, t_content *axx);
 void				correction_optique(t_clist *param);
 void				set_hauteur(t_clist *param);
 void				write_buffeur(t_clist *param, int x);
-void				set_mouv(t_clist *param, t_content *axx);
 int					boolean_mouv(t_clist *param, int keycode);
 int					boolean_stop_mouv(t_clist *param, int keycode);
-void				transform_map(t_content *axx, int  nb_list, t_clist *param);
+void				transform_map(t_content *axx, int nb_list, t_clist *param);
+void				del_tab(char ***tab1);
+void				write_buffeur(t_clist *param, int x);
+void				set_hauteur(t_clist *param);
+void				set_direction(t_content *axx, t_clist *param);
+void				set_rotate(t_clist *param);
 
 #endif
