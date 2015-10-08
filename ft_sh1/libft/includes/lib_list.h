@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/17 00:01:14 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/04 09:35:38 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/08 12:43:58 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define TMP_IN(y, z) 	((t_int *)NORM2(y, z)->bit)->t_x
 # define VALUE_INC(y, z, x) ((t_int *)NORM3(y, z)->bit + x)->t_x
 # define NORM3(y, z)		((t_clist *)LIST_V(y, z) + 3)
-# define CONTENT(x) ((t_float *)param->bit + x)->t_x
+# define CONTENT(x) ((t_int *)param->bit + x)->t_x
 # define PARAM(x)	((t_clist *)param + 1 + x)->bit
 
 
@@ -71,5 +71,7 @@ void				del_elem(t_content *axx, int n_list, int pos_x, int sens);
 void				move_chain(t_content *axx, int pos_x, int pos_y);
 void				sort_list_bul(t_content *axx,
 int					nlist, int (*cmp)(int, int));
+void				add_lstr(t_clist **list, int n_mail, int pos_x, void *src);
+void				**list_to_tab(t_content *axx, int n_list, int type, int n_content);
 
 #endif

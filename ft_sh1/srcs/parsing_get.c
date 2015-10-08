@@ -6,22 +6,34 @@
 /*   By: mdambrev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/04 09:30:09 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/04 17:30:02 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/08 15:34:59 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_sh1.h"
+#include <stdio.h>
 
 t_clist						*init_param(void)
 {
 	t_clist					*param;
 	t_int					*content;
+	int						x;
 
-	param = (t_clist *)malloc(sizeof(t_clist) * NB_PARAM + 10);
-	content = (t_int *)malloc(sizeof(t_int) * NB_INT + 10);
+	x = 0;
+	param = (t_clist *)malloc(sizeof(t_clist) * NB_PARAM);
+	content = (t_int *)malloc(sizeof(t_int) * NB_INT);
 	param->bit = content;
-	free(PARAM(2));
-	PARAM(2) = NULL;
+	while(x < NB_PARAM)
+	{
+		PARAM(x) = NULL;
+		x++;
+	}
+	x = 0;
+	while(x < NB_INT)
+	{
+		CONTENT(x) = 0;
+		x++;
+	}
 	return (param);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mdambrev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/04 09:08:51 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/08 16:10:39 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/05 09:40:01 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,15 @@
 # define FT_SH1_H
 # include "get_next_line.h"
 
-# define NB_PARAM 8
-# define NB_INT 8
+# define NB_PARAM 10
+# define NB_INT 10
 
 t_clist *init_param(void);
 char	**read_standar(t_clist *param);
 char 	**split_line(char const *s); 
-int 	ret_bin(t_clist *param);
+void 	ret_bin(t_clist *param);
 void	dup_env(char **env, t_clist *param);
 void	set_action(t_clist *param, int order_tab);
 int		set_builds(t_clist *param);
-void	exec_builtins(t_clist *param);
-void	ft_setenv(t_clist *param);
-int		search_occu(char *str, int c);
-void	ft_unsetenv(t_clist *param);
-void	exec_bin(t_clist *param);
-void	bin_bin(t_clist *param);
-void	ft_cd(t_clist *param);
 
 # endif

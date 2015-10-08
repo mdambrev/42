@@ -6,11 +6,12 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 16:25:19 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/08/15 17:39:31 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/08 18:23:30 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 void	sort_list_bul(t_content *axx, int nlist, int (*cmp)(int, int))
 {
@@ -31,4 +32,56 @@ void	sort_list_bul(t_content *axx, int nlist, int (*cmp)(int, int))
 			}
 		}
 	}
+}
+
+void	add_lstr(t_clist **list, int n_mail, int pos_x, void *src)
+{
+	int x;
+	t_content ax;
+	t_content	*axx;
+
+	x = 0;
+	ax.list = *list;
+	axx = &ax;
+	LIST_R(0);
+	if(n_mail < 0)
+	{
+		while(LIST_IB(0, 0) == 0)
+			x++;
+		n_mail = x + n_mail;
+		x = 0;
+	}
+	while(LIST_IB(0, 0) == 0)
+	{
+		if(x == n_mail)
+		{
+			VALUE_C(0, pos_x) = src;
+			break;
+		}
+		x++;
+	}
+}
+
+void **list_to_tab(t_content *axx, int n_list, int type, int n_content)
+{
+	void **tab;
+	int x;
+
+	TMP_A(0) = LIST_A(n_list);
+	LIST_R(NB_LIST);
+	while(LIST_IB(NB_LIST, 0) == 0)
+		x++;
+	tab = (void **)malloc(sizeof(void *) * x + 1);
+	LIST_R(NB_LIST);
+	x = 0;
+	while(LIST_IB(NB_LIST, 0) == 0)
+	{
+		if(type == 1)
+		{
+			tab[x] = ft_strdup(VALUE_C(NB_LIST, n_content));
+		}
+		x++;
+	}
+	tab[x] = 0;
+	return(tab);
 }

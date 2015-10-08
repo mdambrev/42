@@ -1,0 +1,89 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cd.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/10/08 15:50:11 by mdambrev          #+#    #+#             */
+/*   Updated: 2015/10/08 16:23:42 by mdambrev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ft_sh1.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
+
+#include <dirent.h>
+
+int 	verif_cd(t_clist *param,char *path)
+{
+	(void)param;
+
+	if(opendir(path) == NULL)
+		return(0);
+	else 
+		return(1);
+}
+
+void exec_pwd(t_clist *param, char *path)
+{
+
+	if(verif_cd(param, path) == 0)
+		printf("error \n");
+	else
+	{
+		chdir(path);	
+	}
+	
+}
+
+char	*join_path(t_clist *param)
+{
+	t_content *axx;
+	char *tmp;
+	char **tab;
+	char *str;
+
+	axx = PARAM(2);
+	tab = PARAM(1);
+	TMP_A(0) = LIST_A(0);
+	while(LIST_IB(NB_LIST, 0) == 0)
+	{
+		if(ft_strcmp(VALUE_C(NB_LIST, 1), "PWD") == 0)
+			break;
+	}
+	tmp = ft_strdup(VALUE_C(NB_LIST, 0) + search_occu(VALUE_C(NB_LIST, 0), '='));
+	tmp = ft_strjoin(tmp, "/");
+	str = ft_strjoin(tmp, tab[1]);
+	return(str);
+}
+
+
+void	ft_cd(t_clist *param)
+{
+	t_content *axx;
+	char *path;
+
+	axx = PARAM(2);
+	TMP_A(0) = LIST_A(0);
+	while(LIST_IB(NB_LIST, 0) == 0)
+	{
+		if(ft_strcmp(VALUE_C(NB_LIST, 1), "PWD") == 0)
+			break;
+	}
+	if(ft_strcmp(VALUE_C(NB_LIST, 1), "PWD" ) == 0)
+	{
+		path = join_path(param);
+		printf("path == %s\n",path);
+		exec_pwd(param, path);
+	}
+	else
+	{
+		;
+//		path = join_pwd(param);
+//		exec_pwd(param, path);
+	}
+		
+}

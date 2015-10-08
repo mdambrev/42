@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fork_bin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/22 17:50:53 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/08 17:39:38 by mdambrev         ###   ########.fr       */
+/*   Created: 2015/10/08 14:53:44 by mdambrev          #+#    #+#             */
+/*   Updated: 2015/10/08 15:39:42 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ft_sh1.h>
-#include <stdio.h>
+#include "ft_sh1.h"
 
-int					main(int argc, char **argv, char **env)
+void	fork_bin(t_clist *param)
 {
+	pid_t pid;
 
-	t_clist *param;
-	char **tab;
-	(void)argc;
-	(void)argv;
-
-	param = init_param();
-	dup_env(env, param);
-	while(1)
+	pid = fork();
+	if(pid == 0)
+		exec_bin(param);
+	else 
 	{
-		ft_putstr("$ > ");
-		tab = read_standar(param);
-		set_action(param, 0);
-		exec_builtins(param);
-		bin_bin(param);
+		wait(NULL);
 	}
-	return (0);
+}
+
+void  bin_bin(t_clist *param)
+{
+	if(CONTENT(1) == 1 && CONTENT(2) == 0)
+	{
+		fork_bin(param);
+	}
 }
