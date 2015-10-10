@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/22 17:50:53 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/08 17:39:38 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/10 12:56:40 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int					main(int argc, char **argv, char **env)
 	while(1)
 	{
 		ft_putstr("$ > ");
-		tab = read_standar(param);
+		if(!(tab = read_standar(param))[0])
+			continue;
 		set_action(param, 0);
 		exec_builtins(param);
 		bin_bin(param);

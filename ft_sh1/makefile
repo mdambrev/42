@@ -6,7 +6,7 @@
 #    By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/23 13:20:45 by mdambrev          #+#    #+#              #
-#    Updated: 2015/10/08 15:50:51 by mdambrev         ###   ########.fr        #
+#    Updated: 2015/10/10 13:00:21 by mdambrev         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -28,6 +28,7 @@ SRC 	= main.c \
 		  setenv.c \
 		  fork_bin.c \
 		  cd.c \
+		  add_cd.c \
 
 OBJ 	= $(SRC:.c=.o)
 SRCDIR 	= ./srcs/
