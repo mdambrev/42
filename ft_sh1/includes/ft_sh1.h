@@ -6,7 +6,7 @@
 /*   By: mdambrev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/04 09:08:51 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/10 18:27:43 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/14 14:07:52 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ void	bin_bin(t_clist *param);
 void	ft_cd(t_clist *param);
 char	*search_home(t_clist *param);
 int		set_old_pwd(t_clist *param, char *str);
+int 	verif_path_env(t_clist *param, char *str);
+int		search_env(t_clist *param, char *name);
+int		add_env(t_clist *param, char *name, char *content);
 
 # endif

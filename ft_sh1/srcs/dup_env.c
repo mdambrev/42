@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/04 15:02:11 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/08 14:51:04 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/13 15:20:04 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void			dup_env(char ** env, t_clist *param)
 		add_l(&LIST_A(0), ft_strdup(env[x]), -1);
 		x++;
 	}
-	PARAM(2) = LIST_A(0);
+	PARAM(2) = axx;
 	TMP_A(4) = LIST_A(0);
 	while(LIST_IB(NB_LIST + 4, 0) == 0)
 		TMP_C(4,1) = ft_strsub(TMP_C(4,0), 0, search_occu(TMP_C(4, 0), '='));	

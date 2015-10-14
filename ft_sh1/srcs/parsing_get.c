@@ -6,7 +6,7 @@
 /*   By: mdambrev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/04 09:30:09 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/08 15:34:59 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/14 18:30:01 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ char 						**read_standar(t_clist *param)
 {
 	char *line;
 	char **tab;
+	int ret;
 
-	get_next_line(STDIN_FILENO, &line);
+	if((ret = get_next_line(STDIN_FILENO, &line)) == 0)
+		exit(0);
 	PARAM(1) = line;
 	tab = split_line(PARAM(1));
 	PARAM(1) = tab;

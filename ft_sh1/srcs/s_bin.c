@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/10/04 15:29:49 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/10/08 18:33:32 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/14 12:17:33 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,17 @@ char **split_path(t_clist *param)
 	x = 0 ;
 
 	axx = PARAM(2);
-	TMP_A(1) = LIST_A(0); 
+	TMP_A(1) = LIST_A(0);
+	LIST_R(NB_LIST + 1);	
 	while(LIST_IB(NB_LIST + 1, 0) == 0)
 	{
 		if(ft_strcmp(TMP_C(1, 1), "PATH") == 0)
-			break;
+		{
+			tab = ft_strsplit(TMP_C(1, 0) + 5, ':');
+			return(tab);
+		}
 	}
-	tab = ft_strsplit(TMP_C(1, 0) + 5, ':');
-	return(tab);
+	return(NULL);
 }
 
 int		ret_bin(t_clist *param)
@@ -48,7 +51,7 @@ int		ret_bin(t_clist *param)
 		PARAM(3) = ft_strdup(name[CONTENT(0)]) ;
 		return(1);
 	}
-	while(tab[x])
+	while(tab && tab[x])
 	{
 		tmp = ft_strjoin(tab[x], "/");
 		tmp2 = ft_strjoin(tmp, name[CONTENT(0)]);

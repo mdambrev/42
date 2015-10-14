@@ -6,7 +6,7 @@
 /*   By: mdambrev <mdambrev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/23 09:42:50 by mdambrev          #+#    #+#             */
-/*   Updated: 2015/09/07 08:15:45 by mdambrev         ###   ########.fr       */
+/*   Updated: 2015/10/14 16:25:53 by mdambrev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,6 @@ void				del_elem(t_content *axx, int n_list, int pos_x, int sens)
 	LIST_R(n_list);
 	while (pos_x--)
 		LIST_I(n_list, sens);
-	if (LIST_A(0) == LIST_V(0, 2))
-	{
-		ft_putendl("\nERROR : (F_DEL_ELEM) delete racine list\n");
-		return ;
-	}
 	LIST_A(3) = LIST_V(n_list, 1);
 	LIST_V(3, 0) = LIST_V(n_list, 0);
 	LIST_A(3) = LIST_V(n_list, 0);
